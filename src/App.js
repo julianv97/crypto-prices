@@ -1,10 +1,13 @@
+import React from "react";
+import TableCoins from "./components/TableCoins";
 
+import CoinsState from "./context/CoinsState";
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <CoinsState>
+      <TableCoins />
+    </CoinsState>
   );
 }
 
