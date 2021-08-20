@@ -1,0 +1,2 @@
+-hacer dinámico el cambio a dolar blue cuando se selecciona la divisa 'ars'
+-convertir en tabla los datos de las monedas

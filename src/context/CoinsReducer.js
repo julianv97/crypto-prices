@@ -7,6 +7,8 @@ const reducer = (state, action) => {
     case "PREVENT_DEFAULT":
       action.payload.preventDefault();
       return { ...state };
+    case "CHANGE_CURRENCY":
+      return { ...state, currency: action.payload };
     default:
       throw new Error("no hay dispatch");
   }
