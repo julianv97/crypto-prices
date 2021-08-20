@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import CoinsContext from "../context/CoinsContext";
 
 const TableCoins = () => {
   const { state, handleDispatch } = useContext(CoinsContext);
+  const [filteredCoins, setFilteredCoins] = useState([]);
 
-  const filteredCoins = state.coins.filter((coin) =>
+  useEffect(() => {
+    setFilteredCoins(()=> {return (state.coins.filter((coin) =>
     coin.name.toLowerCase().includes(state.search.toLowerCase())
-  );
+  ))} )
+  }, [state.coins, state.search]);
 
   return (
     <div>
