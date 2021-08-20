@@ -28,7 +28,7 @@ const CoinsState = (props) => {
     getData();
     const interval = setInterval(() => {
       getData();
-    }, 30000);
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
 

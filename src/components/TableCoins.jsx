@@ -11,7 +11,7 @@ const TableCoins = () => {
   return (
     <div>
       <h1>Search a coin</h1>
-      <form action="">
+      <form action="" onSubmit={(e) => handleDispatch("PREVENT_DEFAULT", e)}>
         <input
           type="text"
           name=""
@@ -22,7 +22,7 @@ const TableCoins = () => {
       </form>
       {filteredCoins.map((coin) => {
         return (
-          <div>
+          <div key={coin.id}>
             <span>{coin.name}</span>
             <span>{coin.current_price}</span>
           </div>
