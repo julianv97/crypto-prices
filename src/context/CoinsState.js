@@ -4,20 +4,13 @@ import axios from "axios";
 import CoinsContext from "./CoinsContext";
 import reducer from "./CoinsReducer";
 
-const getLocalStorage = () => {
-  let list = localStorage.getItem("list");
-  if (list) {
-    return (list = JSON.parse(localStorage.getItem("list")));
-  } else {
-    return [];
-  }
-};
+
 
 const CoinsState = (props) => {
   const initialState = {
     coins: [],
     currency: "usd",
-    favCoins: getLocalStorage(),
+    
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -34,7 +27,6 @@ const CoinsState = (props) => {
   }, [url]);
 
   useEffect(() => {
-    localStorage.setItem("list", JSON.stringify(state.favCoins));
     getData();
     const interval = setInterval(() => {
       getData();
