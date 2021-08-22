@@ -31,7 +31,7 @@ const TableCoins = () => {
       <form
         action=""
         onSubmit={(e) => handleDispatch("PREVENT_DEFAULT", e)}
-        className="flex flex-col py-10 justify-center items-center  w-full min-w-max"
+        className="flex flex-col pb-6 pt-4 md:pt-0 justify-center items-center  w-full min-w-max"
       >
         <div className="flex items-center">
           <input
@@ -52,7 +52,7 @@ const TableCoins = () => {
               <option
                 value={currency}
                 key={currency}
-                className="dark:text-gray-900 bg-regal-purple "
+                className="dark:text-gray-900 bg-gray-300 dark:bg-regal-purple "
               >
                 {currency}
               </option>
@@ -62,7 +62,7 @@ const TableCoins = () => {
       </form>
       <div className="overflow-x-auto">
         <table className="min-w-full   border-t border-gray-200   table-auto border-collapse ">
-          <thead className="bg-gray-50 sticky top-0 h-full  w-full divide-y divide-gray-200 border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900 ">
+          <thead className="bg-gray-100 sticky top-0 h-full  w-full divide-y divide-gray-200 border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900 ">
             <tr className="h-full ">
               {titles.map((title, i) => (
                 <td

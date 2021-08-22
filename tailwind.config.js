@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     fontFamily: {
       montserrat: "Montserrat",
+      josefin: "Josefin Sans",
     },
     extend: {
       colors: {
