@@ -8,7 +8,7 @@ const CoinRow = ({ coin }) => {
       <td className=" w-6 px-6 py-4 whitespace-nowrap text-gray-500">
         {coin.market_cap_rank}
       </td>
-      
+
       <td className="flex items-center w-60  py-4 whitespace-nowrap">
         <img src={coin.image} alt={coin.name} className="w-7 h-7" />
         <div className="flex flex-col lg:flex-row pl-2">
@@ -18,7 +18,10 @@ const CoinRow = ({ coin }) => {
       </td>
 
       <td className="px-6 py-4 whitespace-nowrap">
-        ${state.currency === "ARS" ? (coin.current_price/96*180).toLocaleString() : coin.current_price.toLocaleString()}
+        $
+        {state.currency === "ARS"
+          ? ((coin.current_price / 96) * 180).toLocaleString()
+          : coin.current_price.toLocaleString()}
       </td>
 
       <td
@@ -42,8 +45,6 @@ const CoinRow = ({ coin }) => {
       <td className="px-6 py-4 whitespace-nowrap">
         {coin.circulating_supply.toLocaleString()}
       </td>
-
-      
     </tr>
   );
 };

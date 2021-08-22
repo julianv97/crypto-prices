@@ -31,7 +31,7 @@ const TableCoins = () => {
       <form
         action=""
         onSubmit={(e) => handleDispatch("PREVENT_DEFAULT", e)}
-        className="flex flex-col py-10 justify-center items-center  transition duration-500  w-full min-w-max"
+        className="flex flex-col py-10 justify-center items-center  w-full min-w-max"
       >
         <div className="flex items-center">
           <input
@@ -49,16 +49,18 @@ const TableCoins = () => {
             }}
           >
             {currencies.map((currency) => (
-              <option value={currency} key={currency} className="dark:text-gray-900 bg-regal-purple ">
+              <option
+                value={currency}
+                key={currency}
+                className="dark:text-gray-900 bg-regal-purple "
+              >
                 {currency}
               </option>
             ))}
           </select>
         </div>
       </form>
-     <div className="overflow-x-auto">
-
-   
+      <div className="overflow-x-auto">
         <table className="min-w-full   border-t border-gray-200   table-auto border-collapse transition duration-500">
           <thead className="bg-gray-50 sticky top-0 h-full  w-full divide-y divide-gray-200 border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900 transition duration-500">
             <tr className="h-full transition duration-500">
@@ -71,19 +73,15 @@ const TableCoins = () => {
                 </td>
               ))}
             </tr>
-             {/*  <div className="h-1 bg-gray-500 "></div> */}
           </thead>
 
           <tbody className="bg-white divide-y divide-gray-200  dark:divide-gray-500 dark:bg-gray-900 dark:text-gray-200 transition duration-500">
-            {filteredCoins.map(
-              (coin) => (
-                <CoinRow coin={coin} key={coin.id} />
-              )
-              //CARTEL CUANDO NO ENCUENTRA LA MONEDA
-            )}
+            {filteredCoins.map((coin) => (
+              <CoinRow coin={coin} key={coin.id} />
+            ))}
           </tbody>
         </table>
-        </div>
+      </div>
     </div>
   );
 };

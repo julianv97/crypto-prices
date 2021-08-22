@@ -8,9 +8,8 @@ function App() {
   return (
     <CoinsState>
       <div className="dark:bg-gray-800 w-full h-full min-h-screen transition duration-500 ">
-
-      <Header />
-      <TableCoins />
+        <Header />
+        <TableCoins />
       </div>
     </CoinsState>
   );
