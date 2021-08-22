@@ -4,36 +4,46 @@ import CoinsContext from "../context/CoinsContext";
 const CoinRow = ({ coin }) => {
   const { state } = useContext(CoinsContext);
   return (
-    <tr key={coin.name}>
-      <td className="px-6 py-4">
-        <div className="flex items-center">
-          <div className="flex-shrink-0 h-8 w-8">
-            <img className="h-8 w-8 rounded-full" src={coin.image} alt="" />
-          </div>
-          <div className="ml-4 flex ">
-            <div className="text-sm font-medium text-gray-900">{coin.name}</div>
-            <div className="text-sm text-gray-500">{coin.symbol}</div>
-          </div>
+    <tr className="font-montserrat">
+      <td className=" w-6 px-6 py-4 whitespace-nowrap text-gray-500">
+        {coin.market_cap_rank}
+      </td>
+      
+      <td className="flex items-center w-60  py-4 whitespace-nowrap">
+        <img src={coin.image} alt={coin.name} className="w-7 h-7" />
+        <div className="flex flex-col lg:flex-row pl-2">
+          <span>{coin.name}</span>
+          <span className="uppercase text-gray-500 lg:ml-2">{coin.symbol}</span>
         </div>
       </td>
+
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-900">
-          {state.currency === "ARS"
-            ? ((coin.current_price / 96.5) * 179).toFixed(2)
-            : coin.current_price.toFixed(2)}
-        </div>
+        ${state.currency === "ARS" ? (coin.current_price/96*180).toLocaleString() : coin.current_price.toLocaleString()}
       </td>
+
+      <td
+        className={`${
+          coin.price_change_percentage_24h > 0
+            ? "text-green-600"
+            : "text-red-600"
+        } px-6 py-4 whitespace-nowrap`}
+      >
+        {coin.price_change_percentage_24h.toLocaleString()}%
+      </td>
+
       <td className="px-6 py-4 whitespace-nowrap">
-        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-          Active
-        </span>
+        ${coin.total_volume.toLocaleString()}
       </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        {coin.name}
+
+      <td className="px-6 py-4 whitespace-nowrap">
+        ${coin.market_cap.toLocaleString()}
       </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        {coin.name}
+
+      <td className="px-6 py-4 whitespace-nowrap">
+        {coin.circulating_supply.toLocaleString()}
       </td>
+
+      
     </tr>
   );
 };
