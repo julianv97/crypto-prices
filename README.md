@@ -7,9 +7,9 @@ Desarrollado con React + TailwindCSS.
 #### Link: https://crypto-prices-julianv97.vercel.app/
 
 ```
-git clone https://github.com/julianv97/hex-color-generator.git
+git clone https://github.com/julianv97/crypto-prices.git
 
-cd hex-color-generator
+cd crypto-prices
 
 npm install
 
