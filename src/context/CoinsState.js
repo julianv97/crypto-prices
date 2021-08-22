@@ -22,7 +22,7 @@ const CoinsState = (props) => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  let url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${state.currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
+  let url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${state.currency}&order=market_cap_desc&per_page=50&page=1&sparkline=false`;
 
   const getData = useCallback(() => {
     axios
