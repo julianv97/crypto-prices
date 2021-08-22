@@ -5,7 +5,7 @@ const CoinRow = ({ coin }) => {
   const { state } = useContext(CoinsContext);
 
   return (
-    <tr className="font-montserrat text-sm md:text-base hover:bg-gray-200">
+    <tr className="font-montserrat text-sm md:text-base hover:bg-gray-200 dark:hover:bg-gray-800">
       <td className=" w-6 px-6 py-4 whitespace-nowrap text-gray-500">
         {coin.market_cap_rank}
       </td>
