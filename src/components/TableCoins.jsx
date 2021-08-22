@@ -39,11 +39,11 @@ const TableCoins = () => {
             name=""
             id=""
             placeholder="Search a coin"
-            className="focus:ring-indigo-500 focus:border-indigo-500 block  pl-7 pr-12 sm:text-sm border-gray-300  rounded-md dark:bg-gray-500 dark:border-regal-purple dark:text-gray-50 dark:placeholder-gray-100 transition duration-500"
+            className="focus:ring-indigo-500 focus:border-indigo-500 block  pl-7 pr-12 sm:text-sm border-gray-300  rounded-md dark:bg-gray-500 dark:border-regal-purple dark:text-gray-50 dark:placeholder-gray-100 "
             onChange={(e) => setSearchCoin(e.target.value)}
           />
           <select
-            className="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md dark:text-gray-50 hover:text-gray-800 transition duration-500"
+            className="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md dark:text-gray-50 hover:text-gray-800 "
             onChange={(e) => {
               handleDispatch("CHANGE_CURRENCY", e.target.value);
             }}
@@ -61,13 +61,13 @@ const TableCoins = () => {
         </div>
       </form>
       <div className="overflow-x-auto">
-        <table className="min-w-full   border-t border-gray-200   table-auto border-collapse transition duration-500">
-          <thead className="bg-gray-50 sticky top-0 h-full  w-full divide-y divide-gray-200 border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900 transition duration-500">
-            <tr className="h-full transition duration-500">
+        <table className="min-w-full   border-t border-gray-200   table-auto border-collapse ">
+          <thead className="bg-gray-50 sticky top-0 h-full  w-full divide-y divide-gray-200 border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900 ">
+            <tr className="h-full ">
               {titles.map((title, i) => (
                 <td
                   key={i}
-                  className="px-6 py-3 text-left text-xs h-full font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider transition duration-500"
+                  className="px-6 py-3 text-left text-xs h-full font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider "
                 >
                   {title}
                 </td>
@@ -75,7 +75,7 @@ const TableCoins = () => {
             </tr>
           </thead>
 
-          <tbody className="bg-white divide-y divide-gray-200  dark:divide-gray-500 dark:bg-gray-900 dark:text-gray-200 transition duration-500">
+          <tbody className="bg-white divide-y divide-gray-200  dark:divide-gray-500 dark:bg-gray-900 dark:text-gray-200 ">
             {filteredCoins.map((coin) => (
               <CoinRow coin={coin} key={coin.id} />
             ))}

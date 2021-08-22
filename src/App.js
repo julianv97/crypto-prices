@@ -9,7 +9,7 @@ function App() {
   return (
     <Suspense fallback={<h1>Loading...</h1>}>
       <CoinsState>
-        <div className="dark:bg-gray-800 w-full h-full min-h-screen transition duration-500 ">
+        <div className="dark:bg-gray-800 w-full h-full min-h-screen  ">
           <Header />
           <TableCoins />
         </div>
