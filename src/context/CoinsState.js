@@ -4,16 +4,25 @@ import axios from "axios";
 import CoinsContext from "./CoinsContext";
 import reducer from "./CoinsReducer";
 
+const getLocalStorage = () => {
+  let list = localStorage.getItem("list");
+  if (list) {
+    return (list = JSON.parse(localStorage.getItem("list")));
+  } else {
+    return [];
+  }
+};
+
 const CoinsState = (props) => {
   const initialState = {
     coins: [],
-    search: "",
     currency: "usd",
+    favCoins: getLocalStorage(),
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  let url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${state.currency}&order=market_cap_desc&per_page=10&page=1&sparkline=false`;
+  let url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${state.currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
 
   const getData = useCallback(() => {
     axios
@@ -25,12 +34,13 @@ const CoinsState = (props) => {
   }, [url]);
 
   useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(state.favCoins));
     getData();
     const interval = setInterval(() => {
       getData();
-    }, 1000);
+    },30000);
     return () => clearInterval(interval);
-  }, [getData]);
+  }, [getData, state.favCoins]);
 
   const handleDispatch = (type, payload) => {
     dispatch({ type: type, payload: payload });
