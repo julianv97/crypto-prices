@@ -5,7 +5,6 @@ import { BsMoon, BsSun } from "react-icons/bs";
 
 const Header = () => {
   const { state } = useContext(CoinsContext);
-  console.log(state.coins);
   const [colorTheme, setTheme] = useDarkMode();
 
   return (
@@ -44,7 +43,6 @@ const Header = () => {
             className="w-8 dark:text-white  transition duration-500 text-2xl cursor-pointer text-right	"
             onClick={() => {
               setTheme(colorTheme);
-              console.log("entra");
             }}
           >
             {colorTheme === "light" ? <BsMoon /> : <BsSun />}
